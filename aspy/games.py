@@ -37,7 +37,7 @@ class Load(Game):
 class Menu(Game):
   def __init__(self):
     Game.__init__(self)
-    self.size = (500,1000)
+    self.size = (500,600)
     self.bg = (60,200,40)
     self.menuitems = {}
     self.font = pygame.font.SysFont("Cambria", 30)
