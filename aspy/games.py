@@ -55,7 +55,7 @@ class Menu(Game):
     y = 100
     for i in self.menuitemorder:
       if i in self.menuitemrects:
-        self.display.blit(self.font.render(i, True, (10,20,200), self.menuitemrects[i]))
+        self.display.blit(self.font.render(i, True, (10,20,200)), self.menuitemrects[i])
       else:
         rendered = self.font.render(i, True, (10,20,200))
         self.menuitemrects[i] = (self.size[0]/2-rendered.get_width()/2, y, rendered.get_width(), rendered.get_height())
