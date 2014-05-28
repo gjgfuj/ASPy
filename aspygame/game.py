@@ -9,6 +9,7 @@ class InitLoader(aspy.loader.Loader):
   def __init__(self, menu):
     aspy.loader.Loader.__init__(self, [], menu)
 class MainMenu(aspy.games.Menu):
-  pass
+  def __init__(self):
+    
 def setup():
   aspy.game.game = aspy.games.Load(InitLoader(MainMenu()))
