@@ -10,6 +10,7 @@ class InitLoader(aspy.loader.Loader):
     aspy.loader.Loader.__init__(self, [], menu)
 class MainMenu(aspy.games.Menu):
   def startgame(self):
+    aspy.game.game = aspy.games.Load(GameLoader(CharCreation()))
     print "Game Started"
   def __init__(self):
     aspy.games.Menu.__init__(self)
