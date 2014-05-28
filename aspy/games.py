@@ -36,6 +36,7 @@ class Load(Game):
     self.display.blit(line, (250-line.get_width()/2, 400))
 class Menu(Game):
   def __init__(self):
+    Game.__init__(self)
     self.size = (500,1000)
     self.bg = (60,200,40)
     self.menuitems = {}
