@@ -5,14 +5,15 @@ import sys
 
 import aspy.games as games
 import aspy.config as config
-import aspy.core
+import aspy.core as core
+import aspy.game
 import aspygame.game
 
 def loop():
-  game = games.game
+  game = aspy.game.game
   display = pygame.display.set_mode(game.size, game.flags)
   game.display = pygame.Surface(game.size)
-  while game == games.game:
+  while game == aspy.game.game:
     for e in pygame.event.get():
       if e.type == pygame.QUIT:
         sys.exit(0)

@@ -12,4 +12,4 @@ mousedown = {
 mouseup = {
   
 }
-fullscreen = True
+fullscreen = False
