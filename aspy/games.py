@@ -50,6 +50,11 @@ class Menu(Game):
     sys.exit(0)
   def nothing(self):
     pass
+  def select(self, pos):
+    Game.select(self, pos)
+    for i in self.menuitemrects:
+      if pygame.Rect(self.menuitemrects[i]).collidepoint(pos):
+        self.menuitems[i]()
   def play(self):
     Game.play(self)
     y = 100
