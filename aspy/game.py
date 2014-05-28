@@ -1,2 +1,3 @@
 import aspy.games as games
-game = games.Load(games.TestLoader(games.Load(games.TestLoader(games.Game()))))
+import aspy.loader as loader
+game = games.Load(loader.TestLoader(games.Load(loader.TestLoader(games.Game()))))
