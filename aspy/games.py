@@ -22,6 +22,9 @@ class Game:
       self.select(oevent.pos)
     if event == "context":
       self.context(oevent.pos)
+class Loader:
+  def loadsection(self):
+    pass
 class Load(Game):
   def __init__(self, loader):
     super(Load, self).__init__()
@@ -30,6 +33,7 @@ class Load(Game):
     self.font = pygame.font.SysFont("Comic Sans MS", 30)
   def play(self):
     super(Load, self).play()
-    loader.loadsection()
-    self.display.blit(self.font.render("Loading"))
+    line = self.font.render(loader.loadsection(), True, (200,100,0))
+    self.display.blit(self.font.render("Loading", True, (100,0,200)), (210, 30))
+    self.display.blit(line, (250-line.get_width/2, 100))
 game = Game()
