@@ -1,10 +1,11 @@
 import pygame
 pygame.init()
 import os
-
+import sys
 
 import aspy.games as games
-import aspygame.globalgame as globalgame
+import aspy.config as config
+import aspy.core
 
 def loop():
   game = games.game
@@ -13,10 +14,18 @@ def loop():
   while True:
     for e in pygame.event.get():
       if e.type == pygame.QUIT:
-        os.exit(0)
-    display.fill(game.bg)
+        sys.exit(0)
+      elif e.type == pygame.KEYDOWN:
+        game.event(aspy.core.configparser.keydown(e), e)
+      elif e.type == pygame.KEYUP:
+        game.event(aspy.core.configparser.keyup(e), e)
+      elif e.type == pygame.MOUSEBUTTONDOWN:
+        game.event(aspy.core.configparser.mousedown(e), e)
+      elif e.type == pygame.MOUSEBUTTONUP:
+        game.event(aspy.core.configparser.mouseup(e), e)
+    game.display.fill(game.bg)
     game.play()
-    display.blit(game.display (0,0))
+    display.blit(game.display, (0,0))
     pygame.display.flip()
 
 if __name__ == "__main__":
