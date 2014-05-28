@@ -39,9 +39,12 @@ class Menu(Game):
     Game.__init__(self)
     self.size = (500,600)
     self.bg = (60,200,40)
+    self.menuitemorder = []
     self.menuitems = {}
+    self.menuitemrects = {}
     self.font = pygame.font.SysFont("Cambria", 30)
   def addmenuitem(self, name, action):
+    self.menuitemorder.append(name)
     self.menuitems[name] = action
   def exit(self):
     sys.exit(0)
@@ -50,5 +53,10 @@ class Menu(Game):
   def play(self):
     Game.play(self)
     y = 100
-    for i in self.menuitems:
-      pass
+    for i in self.menuitemorder:
+      if i in self.menuitemrects:
+        self.display.blit(self.font.render(i, True, (10,20,200), self.menuitemrects[i]))
+      else:
+        rendered = self.font.render(i, True, (10,20,200))
+        self.menuitemrects[i] = (self.size[0]/2-rendered.get_width()/2, y, rendered.get_width(), rendered.get_height())
+      y += 50
