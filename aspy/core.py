@@ -1,5 +1,7 @@
 import aspy.config as config
 class ConfigParser:
+  def fullscreen(self):
+    return config.fullscreen
   def keydown(self, event):
     try:
       return config.keydown[event.key]

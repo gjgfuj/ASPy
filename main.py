@@ -6,12 +6,13 @@ import sys
 import aspy.games as games
 import aspy.config as config
 import aspy.core
+import aspygame.game
 
 def loop():
   game = games.game
-  display = pygame.display.set_mode(game.size)
+  display = pygame.display.set_mode(game.size, game.flags)
   game.display = pygame.Surface(game.size)
-  while True:
+  while game == games.game:
     for e in pygame.event.get():
       if e.type == pygame.QUIT:
         sys.exit(0)
@@ -29,5 +30,6 @@ def loop():
     pygame.display.flip()
 
 if __name__ == "__main__":
+  aspygame.game.setup()
   while True:
     loop()
